@@ -210,7 +210,7 @@ var_dump(!$x);      // NOT
 
 ---
 
-```
+````
 
 This version gives:
 
@@ -222,7 +222,237 @@ This version gives:
 Let me know if you'd like to add **increment/decrement**, **string operators**, or **bitwise operators** too.
 ---
 
-> ✨ Keep practicing and exploring PHP – every little experiment helps you grow as a developer!
+Here are the **notes and examples** for **conditions in PHP** for future reference, saved in a markdown format:
 
 ---
+
+## ✅  PHP Condition Statements
+
+## 1. `if` Statement
+
+The `if` statement executes some code if a condition is true.
+
+### Syntax:
+```php
+if (condition) {
+    // code to be executed if condition is true
+}
+````
+
+### Example:
+
+```php
+$age = 20;
+if ($age >= 18) {
+    echo "You are eligible to vote.";
+}
 ```
+
+---
+
+## 2. `else if` Statement
+
+The `else if` statement is used to specify a new condition if the first condition is false.
+
+### Syntax:
+
+```php
+if (condition1) {
+    // code to be executed if condition1 is true
+} elseif (condition2) {
+    // code to be executed if condition2 is true
+}
+```
+
+### Example:
+
+```php
+$score = 75;
+
+if ($score >= 90) {
+    echo "Grade: A";
+} elseif ($score >= 75) {
+    echo "Grade: B";
+} elseif ($score >= 60) {
+    echo "Grade: C";
+}
+```
+
+---
+
+## 3. `else` Statement (for completeness)
+
+The `else` block runs if none of the above conditions are true.
+
+### Syntax:
+
+```php
+if (condition1) {
+    // code if condition1 is true
+} elseif (condition2) {
+    // code if condition2 is true
+} else {
+    // code if neither condition1 nor condition2 is true
+}
+```
+
+### Example:
+
+```php
+$temperature = 10;
+
+if ($temperature > 25) {
+    echo "It's warm.";
+} elseif ($temperature > 15) {
+    echo "It's mild.";
+} else {
+    echo "It's cold.";
+}
+```
+
+## 4. `switch` Statement
+
+The `switch` statement is used to perform different actions based on different conditions.  
+It’s a cleaner alternative to multiple `if...elseif` blocks when checking the same variable against multiple values.
+
+### Syntax:
+
+```php
+switch (expression) {
+    case value1:
+        // code to be executed if expression == value1
+        break;
+    case value2:
+        // code to be executed if expression == value2
+        break;
+    ...
+    default:
+        // code to be executed if none of the cases match
+}
+```
+
+### Example:
+
+```php
+$day = "Wednesday";
+
+switch ($day) {
+    case "Monday":
+        echo "Start of the week!";
+        break;
+    case "Wednesday":
+        echo "Midweek day!";
+        break;
+    case "Friday":
+        echo "Weekend is near!";
+        break;
+    default:
+        echo "Just another day.";
+}
+```
+
+📌 **Note:** Don’t forget the `break` statement after each `case` to prevent fall-through behavior.
+📌 **Note:** Always close PHP conditions with curly braces `{}` for better readability and to avoid bugs.
+
+---
+
+## ✅ 5. Loops in PHP
+
+Loops are used to execute a block of code repeatedly as long as a specified condition is true.
+
+---
+
+### 🔁 1. `while` Loop
+
+The `while` loop executes a block of code **as long as** the condition is true.
+
+```php
+$i = 0;
+while ($i < 5) {
+    echo "The value of i is $i <br>";
+    $i++;
+}
+```
+
+---
+
+### 🔁 2. `do...while` Loop
+
+The `do...while` loop will **always execute the block at least once**, and then check the condition.
+
+```php
+$i = 0;
+do {
+    echo "The value of i is $i <br>";
+    $i++;
+} while ($i < 5);
+```
+
+---
+
+### 🔁 3. `for` Loop
+
+The `for` loop is used when the number of iterations is known.
+
+```php
+for ($i = 0; $i < 5; $i++) {
+    echo "The value of i is $i <br>";
+}
+```
+
+---
+
+### 🔁 4. `foreach` Loop
+
+The `foreach` loop works only on arrays and is used to loop through each key/value pair.
+
+```php
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $color) {
+    echo "Color: $color <br>";
+}
+```
+
+---
+
+📌 **Summary of Loops**
+
+- `while` → use when condition checking comes first
+- `do...while` → at least one run guaranteed
+- `for` → when you know how many times to run
+- `foreach` → best for arrays
+
+---
+
+### ⚠️😡 Avoid Infinite Loops!
+
+Be careful when using loops, especially `while` and `do...while`.  
+If you forget to **update the loop variable** or write the condition incorrectly, the loop may run **forever** and crash your program.
+
+#### ❌ Example of an Infinite Loop (DON’T DO THIS!)
+
+```php
+// WARNING: This will cause an infinite loop!
+$i = 0;
+while ($i < 5) {
+    echo "Value: $i <br>";
+    // Oops! $i is never incremented 😡
+}
+```
+
+#### ✅ Corrected Version:
+
+```php
+$i = 0;
+while ($i < 5) {
+    echo "Value: $i <br>";
+    $i++; // ✅ Incrementing $i to avoid infinite loop
+}
+```
+
+---
+
+📌 **Tip:** Always double-check your loop condition and updates to avoid **infinite loops** 🔁😱
+
+> ✨ Keep practicing and exploring PHP – every little experiment helps you grow as a developer!

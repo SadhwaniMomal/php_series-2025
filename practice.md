@@ -61,3 +61,23 @@
 3. Use `!` to reverse the boolean value `true`.
 
 ---
+
+## ✅ 6. Conditional Statements
+
+1. Write an `if` condition to check if a number is positive.
+2. Use `if...else` to check if a student passed (marks >= 50) or failed.
+3. Create an `if...elseif...else` block to categorize age:
+   - Under 13: Child
+   - 13–19: Teenager
+   - 20 and above: Adult
+4. Use a `switch` statement to print the name of the day based on a number (1 = Monday, 2 = Tuesday, ..., 7 = Sunday).
+
+---
+
+## ✅ 7. Loops in PHP
+
+1. Use a `while` loop to print numbers 1 to 5.
+2. Write a `do...while` loop to print numbers 1 to 5.
+3. Use a `for` loop to print the even numbers from 2 to 10.
+4. Iterate through an array of fruits using a `foreach` loop and print each fruit.
+5. Write a nested loop that prints a simple pattern:
