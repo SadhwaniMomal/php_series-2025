@@ -455,4 +455,372 @@ while ($i < 5) {
 
 📌 **Tip:** Always double-check your loop condition and updates to avoid **infinite loops** 🔁😱
 
+---
+
+## ✅ 6. Functions in PHP
+
+Functions help you reuse code and keep it organized.
+
+### 🔹 Creating a Function
+
+You define a function using the `function` keyword.
+
+## 🔧 Function Example Explained
+
+```php
+<?php
+
+// ✅ Function to calculate the total of all subject marks
+function sumMarks($markArray) {
+    $sum = 0;
+
+    // Loop through each mark and add to the sum
+    foreach ($markArray as $value) {
+        $sum += $value;
+    }
+
+    // Return the total
+    return $sum;
+}
+
+// ✅ Function to calculate the average of all subject marks
+function avgMark($markArray) {
+    $sum = 0;
+
+    // Add all marks together
+    foreach ($markArray as $value) {
+        $sum += $value;
+    }
+
+    // Return the average (sum divided by count of items)
+    return $sum / count($markArray);
+}
+
+// ✅ Example usage:
+$moomal = [50, 20, 30, 50, 50]; // Array of marks
+
+// Print total and average using function calls
+echo "Moomal Total Subject Mark: " . sumMarks($moomal) . "<br/>";
+echo "Moomal Average Mark: " . avgMark($moomal);
+
+?>
+```
+
+### 🧠 What’s happening?
+
+- `sumMarks($markArray)` — adds up all the values in the array.
+- `avgMark($markArray)` — calculates average using total ÷ number of items.
+
+### 💡 Output:
+
+```
+Moomal Total Subject Mark: 200
+Moomal Average Mark: 40
+```
+
+📌 **Tip:** Always reuse logic like this in a function. It makes your code cleaner, easier to maintain, and more powerful when your app grows.
+
+---
+
+Great! Here's a complete section on **Date Functions: Handling Dates in PHP** along with **examples and 3 practice questions**. You can directly add this to your `note.md`.
+
+---
+
+````markdown
+---
+## 📅 Date Functions: Handling Date in PHP
+
+PHP provides built-in functions to work with dates and times.
+---
+
+### 🔹 `date()` Function
+
+Returns the current date/time in a specified format.
+
+```
+<?php
+echo date("Y-m-d") . "<br>";      // 2025-04-11
+echo date("d/m/Y") . "<br>";      // 11/04/2025
+echo date("l") . "<br>";          // Friday
+echo date("h:i:s A") . "<br>";    // 05:23:45 PM
+?>
+```
+````
+
+📝 Common Format Characters:
+
+- `d` – Day (01 to 31)
+- `m` – Month (01 to 12)
+- `Y` – Year (4 digits)
+- `l` – Day of the week (e.g. Monday)
+- `h` – Hour (12-hour format)
+- `H` – Hour (24-hour format)
+- `i` – Minutes
+- `s` – Seconds
+- `A` – AM/PM
+
+---
+
+### 🔹 `time()` Function
+
+Returns current Unix timestamp (number of seconds since Jan 1, 1970)
+
+```php
+<?php
+echo time(); // Example output: 1712841423
+?>
+```
+
+---
+
+### 🔹 `date_default_timezone_set()`
+
+Sets the default timezone.
+
+```php
+<?php
+date_default_timezone_set("Asia/Karachi");
+echo date("Y-m-d H:i:s");
+?>
+```
+
+---
+
+### 🔹 `mktime()` Function
+
+Returns the Unix timestamp for a specific date/time.
+
+```php
+<?php
+$timestamp = mktime(0, 0, 0, 4, 11, 2025);
+echo date("Y-m-d", $timestamp); // 2025-04-11
+?>
+```
+
+---
+
+### 🔹 `strtotime()` Function
+
+Parses a date string into a timestamp.
+
+```php
+<?php
+$date = strtotime("next Sunday");
+echo date("Y-m-d", $date);
+?>
+```
+
+---
+
+## 📝 Practice Questions for Date Functions
+
+1. Print today’s date in the format `Day, DD Month YYYY` (e.g. Friday, 11 April 2025).
+2. Set your timezone to `Asia/Kolkata` and display the current time in 24-hour format.
+3. Calculate and display the date 7 days from today.
+
+---
+
+Perfect! Here's a detailed section on **Associative Arrays in PHP** along with how to loop through them using `foreach`, and as always, it includes **3 practice questions**. Ready to be added to your `note.md`!
+
+---
+
+````markdown
+---
+## 🧩 Associative Arrays in PHP
+
+Associative arrays use **named keys** that you assign to them.
+---
+
+### 🔹 Declaring an Associative Array
+
+```php
+<?php
+$marks = array(
+    "Moomal" => 92,
+    "Abeer" => 88,
+    "Sana" => 76,
+    "Ali" => 59
+);
+
+echo $marks["Moomal"]; // Outputs: 92
+?>
+```
+````
+
+---
+
+### 🔹 Looping Through Associative Arrays using `foreach`
+
+```
+<?php
+$students = array(
+    "Moomal" => 92,
+    "Abeer" => 88,
+    "Sana" => 76,
+    "Ali" => 59
+);
+
+foreach ($students as $name => $score) {
+    echo "$name scored $score marks.<br>";
+}
+?>
+```
+
+🗒️ `foreach ($array as $key => $value)` is the syntax for associative arrays.
+
+---
+
+### 📝 Practice Questions for Associative Arrays
+
+1. Create an associative array of 5 countries and their capitals. Use `foreach` to print each.
+2. Create a student list with names and grades (A, B, C…) and display the list using `foreach`.
+3. Write PHP code using `foreach` to find and print only students who scored more than 80 in a test.
+
+---
+
+## 🧠 Multidimensional Arrays in PHP
+
+Multidimensional arrays are arrays containing one or more arrays inside them.
+
+Useful when you want to organize data in rows and columns (like a table).
+
+---
+
+### 🔹 Example: 2D Array (Array of Arrays)
+
+```
+<?php
+$students = array(
+    array("Moomal", 90, "A"),
+    array("Abeer", 82, "B"),
+    array("Sana", 70, "C")
+);
+
+echo $students[0][0]; // Outputs: Moomal
+echo $students[1][1]; // Outputs: 82
+?>
+
+```
+
+---
+
+🔹 Looping through Multidimensional Arrays
+
+```
+<?php
+$students = array(
+    array("Moomal", 90, "A"),
+    array("Abeer", 82, "B"),
+    array("Sana", 70, "C")
+);
+
+for ($row = 0; $row < count($students); $row++) {
+    echo "Row $row:<br>";
+    for ($col = 0; $col < count($students[$row]); $col++) {
+        echo $students[$row][$col] . " ";
+    }
+    echo "<br>";
+}
+?>
+```
+
+---
+
+🔹 Associative Multidimensional Array
+
+```
+<?php
+$marks = array(
+    "Moomal" => array("Math" => 90, "Science" => 95),
+    "Abeer" => array("Math" => 80, "Science" => 85)
+);
+
+echo $marks["Moomal"]["Math"]; // 90
+?>
+
+```
+
+---
+
+📝 Practice Questions for Multidimensional Arrays
+Create a 2D array for 3 employees with name, age, and department. Loop through and display all.
+
+Create an associative multidimensional array of 3 students and their marks in Math and English. Display using foreach.
+
+---
+
+## 🧊 3D Arrays in PHP
+
+A 3D array is an array of arrays **inside** arrays.
+Think of it like a **cube** — layers (depth), rows, and columns.
+
+---
+
+### 🔹 Declaring a 3D Array
+
+```
+<?php
+$info = array(
+    array(
+        array("A", "B"),
+        array("C", "D")
+    ),
+    array(
+        array("E", "F"),
+        array("G", "H")
+    )
+);
+
+// Accessing elements
+echo $info[0][0][1]; // Output: B
+echo $info[1][1][0]; // Output: G
+?>
+```
+
+Here:
+
+$info[0] is first layer
+
+$info[0][0] is first row in first layer
+
+$info[0][0][1] is second column in first row of first layer
+
+---
+
+🔹 Looping Through 3D Array
+
+```
+<?php
+$info = array(
+    array(
+        array("Apple", "Banana"),
+        array("Grapes", "Orange")
+    ),
+    array(
+        array("Dog", "Cat"),
+        array("Lion", "Tiger")
+    )
+);
+
+for ($i = 0; $i < count($info); $i++) {
+    for ($j = 0; $j < count($info[$i]); $j++) {
+        for ($k = 0; $k < count($info[$i][$j]); $k++) {
+            echo $info[$i][$j][$k] . " ";
+        }
+        echo "<br>";
+    }
+    echo "<hr>";
+}
+?>
+```
+
+📝 Practice Questions for 3D Arrays
+Create a 3D array to store 2 classes, each with 2 students and their 2 subjects.
+
+Make a 3D array of a product warehouse with 2 floors, 2 aisles per floor, and 2 items per aisle. Print all.
+
+Write code to count total elements inside a 3D array.
+
+---
+
 > ✨ Keep practicing and exploring PHP – every little experiment helps you grow as a developer!
