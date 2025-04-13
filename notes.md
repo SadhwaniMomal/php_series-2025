@@ -823,4 +823,164 @@ Write code to count total elements inside a 3D array.
 
 ---
 
+```markdown
+# Scope, Local and Global Variables in PHP
+
+## Key Concepts:
+
+- **Global Variables**: Defined outside functions and accessible globally.
+- **Local Variables**: Defined within functions, accessible only within that function.
+- **`global` Keyword**: Used inside functions to access global variables.
+- **`$GLOBALS` Array**: Superglobal array in PHP that stores all global variables.
+```
+
+## Example Code:
+
+```
+<?php
+
+$a = 98; // Global variable
+$b = 9;  // Global variable
+
+function printValue() {
+    // Access global variables inside function
+    global $a, $b;
+
+    $a = 100;   // Modifying global variable
+    $b = 1000;  // Modifying global variable
+
+    echo "<br> The value of variable a is $a and b is $b";
+}
+
+echo "Before function call: a = $a, b = $b";
+
+printValue();
+
+echo "<br>After function call: a = $a, b = $b";
+
+// Using $GLOBALS array to access global variables
+echo "<br>Using \$GLOBALS: a = " . $GLOBALS['a'] . ", b = " . $GLOBALS['b'];
+?>
+```
+
+```markdown
+## Output (Expected):
+
+Before function call: a = 98, b = 9
+The value of variable a is 100 and b is 1000
+After function call: a = 100, b = 1000
+Using $GLOBALS: a = 100, b = 1000
+```
+
+## Summary:
+
+- Use `global $var;` to modify global variables inside a function.
+- Use `$GLOBALS['var']` to access global variables directly.
+- Changes made using either method persist outside the function.
+
+---
+
+Sure! Here are **simple and easy-to-understand notes** on **PHP Forms: GET & POST Requests**, perfect for quick revision and beginners:
+
+---
+
+````markdown
+# 📄 PHP Forms: GET and POST Methods
+
+In PHP, you use **GET** and **POST** to get data from a form.
+
+---
+
+## 🔹 1. GET Method
+
+📌 **What is it?**
+
+- Sends form data through the URL
+- You can **see the data in the browser’s address bar**
+
+📌 **Best for:**
+
+- Search bars
+- Filter options
+- Non-sensitive info
+
+📌 **Example:**
+
+```html
+<form action="get.php" method="GET">
+  Name: <input type="text" name="name" /><br />
+  <input type="submit" />
+</form>
+```
+````
+
+```php
+<?php
+echo "Your name is " . $_GET['name'];
+?>
+```
+
+📝 **URL looks like:**  
+`get.php?name=John`
+
+---
+
+## 🔹 2. POST Method
+
+📌 **What is it?**
+
+- Sends data **securely in the background**
+- The data is **not shown** in the URL
+
+📌 **Best for:**
+
+- Login forms
+- Registration
+- Sensitive info like passwords
+
+📌 **Example:**
+
+```html
+<form action="post.php" method="POST">
+  Username: <input type="text" name="username" /><br />
+  <input type="submit" />
+</form>
+```
+
+```php
+<?php
+echo "Hello " . $_POST['username'];
+?>
+```
+
+---
+
+## 🔸 3. GET vs POST (Easy Table)
+
+| Feature        | GET                 | POST                 |
+| -------------- | ------------------- | -------------------- |
+| Data in URL?   | Yes                 | No                   |
+| Secure?        | ❌ Not secure       | ✅ More secure       |
+| Use for login? | ❌ No               | ✅ Yes               |
+| Bookmarkable?  | ✅ Yes              | ❌ No                |
+| Limit on size? | ✅ Yes (small data) | ✅ No (can be large) |
+
+---
+
+## ✅ 4. Extra Tips
+
+- Use `$_GET['name']` or `$_POST['name']` to get data
+- Always validate user input
+- Use `method="POST"` when sending passwords
+- Use HTTPS for extra security
+
+---
+
+🎓 **Summary:**
+
+- Use `GET` for simple, visible data
+- Use `POST` for secure, hidden data
+
+```
 > ✨ Keep practicing and exploring PHP – every little experiment helps you grow as a developer!
+```

@@ -178,10 +178,6 @@
 
 ---
 
-Here's the updated **practice sheet** with the **questions** and **expected outputs**, excluding the code for a cleaner look:
-
----
-
 # 📝 PHP Multidimensional Array (2D & 3D) Practice Questions with Output Examples
 
 ---
